@@ -1,7 +1,7 @@
 import time
 import argparse
 import pandas as pd
-from utils import logging_wrapper
+from src.utils import logging_wrapper
 
 
 """

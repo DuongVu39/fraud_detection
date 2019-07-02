@@ -11,16 +11,19 @@ from botocore.exceptions import ClientError
 
 def upload_to_bucket(to_upload, uploaded_name, bucket_name, logger=None):
     """
-    Simple utility to upload a given file to provided S3 bucket. To be used from the command line or in notebooks for easy access.
+    Simple utility to upload a given file to provided S3 bucket.
+    To be used from the command line or in notebooks for easy access.
+
     Args:
-        to_upload:
-        uploaded_name:
-        bucket_name:
-        logger:
+        to_upload (str):
+        uploaded_name (str):
+        bucket_name (str):
+        logger (Logger):
 
     Returns:
-
+        (bool) True if successful, False otherwise.
     """
+
     try:
         s3 = boto3.resource('s3')
 
@@ -42,11 +45,11 @@ def start_instance(instance_id, logger=None):
     """
 
     Args:
-        instance_id:
-        logger:
+        instance_id (str):
+        logger (Logger):
 
     Returns:
-
+        (bool) True if successful, False otherwise.
     """
     ec2 = boto3.client('ec2')
 
@@ -76,6 +79,15 @@ def start_instance(instance_id, logger=None):
 
 
 def stop_instance(instance_id, logger=None):
+    """
+
+    Args:
+        instance_id (str):
+        logger (Logger):
+
+    Returns:
+        (bool) True if successful, False otherwise.
+    """
     ec2 = boto3.client('ec2')
 
     # Do a dryrun first to verify permissions
