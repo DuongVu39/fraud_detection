@@ -32,3 +32,4 @@ def logging_wrapper(level, path):
     logger.info("Logging successfully configured.")
 
     return logger
+

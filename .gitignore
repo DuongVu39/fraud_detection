@@ -107,4 +107,6 @@ venv.bak/
 data/
 
 # log folder
-scr/logs/
+src/logs/
+
+venv/
