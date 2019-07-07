@@ -12,12 +12,13 @@ from botocore.exceptions import ClientError
 def upload_to_bucket(to_upload, uploaded_name, bucket_name, logger=None):
     """
     Simple utility to upload a given file to provided S3 bucket.
+
     To be used from the command line or in notebooks for easy access.
 
     Args:
-        to_upload (str):
-        uploaded_name (str):
-        bucket_name (str):
+        to_upload (str): Absolute path to file.
+        uploaded_name (str): Name for the uploaded file in the s3 bucket. Must be unique for the bucket.
+        bucket_name (str): Name of bucket to upload to
         logger (Logger):
 
     Returns:
@@ -43,7 +44,8 @@ def upload_to_bucket(to_upload, uploaded_name, bucket_name, logger=None):
 
 def start_instance(instance_id, logger=None):
     """
-
+    Utility to test and start an existing EC2 instance.
+    
     Args:
         instance_id (str):
         logger (Logger):

@@ -1,26 +1,27 @@
+"""
+Sorting the data by time and save it as a new data set
+
+Sample usage from terminal:
+    python time_sorting.py train.csv train_sorted.csv
+
+
+Args:
+    input(str): Path to the original data set
+    logging_level(int): Default=3. 1-5 scale determining the logging messages to save.
+                        5 is only CRITICAL, 1 is all message
+    logging_path(dir): Default=logs/{scipt_name}_{unix_time}.log
+                        Path to the desired location to store logs
+
+Returns:
+    output(str): Path to output file with sorted click time
+"""
+
+
 import time
 import argparse
 import pandas as pd
 from src.utils import logging_wrapper
 
-
-"""
-        Sorting the data by time and save it as a new data set
-        
-        Sample usage from terminal:
-            python time_sorting.py train.csv train_sorted.csv
-            
-        
-        Args:
-            input(str): Path to the original data set
-            logging_level(int): Default=3. 1-5 scale determining the logging messages to save.
-                                5 is only CRITICAL, 1 is all message
-            logging_path(dir): Default=logs/{scipt_name}_{unix_time}.log
-                                Path to the desired location to store logs
-                                
-        Returns:
-            output(str): Path to output file with sorted click time
-"""
 
 def parse_arguments():
     # Create argument parser
