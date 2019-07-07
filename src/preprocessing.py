@@ -5,14 +5,18 @@ import pandas as pd
 from src.utils import logging_wrapper
 
 
-def order_by_time(df, logger=None):
-    df['click_time'] = pd.to_datetime(df['click_time'])
+def order_by_time(df, time_col='click_time', logger=None):
+    """Utility to convert times to datetime, sort by a given timestamp and return the sorted df."""
+
+    print("Turning click_time column to datetime object")
+    logger.info("Turn click_time column to datetime object")
+    df[time_col] = pd.to_datetime(df[time_col])
 
     print("Sorting by click time and reset index")
     if logger:
         logger.info("Sorting by click time and reset index")
 
-    df = df.sort_values("click_time").reset_index(drop=True)
+    df = df.sort_values(time_col).reset_index(drop=True)
 
     return df
 

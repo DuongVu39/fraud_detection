@@ -21,6 +21,7 @@ import time
 import argparse
 import pandas as pd
 from src.utils import logging_wrapper
+from src.preprocessing import order_by_time
 
 
 def parse_arguments():
@@ -50,13 +51,7 @@ if __name__ == "__main__":
     logger.info("Read in the original data")
     df = pd.read_csv(args["input"])
 
-    print("Turn click_time column to datetime object")
-    logger.info("Turn click_time column to datetime object")
-    df['click_time'] = pd.to_datetime(df['click_time'])
-
-    print("Sorting by click time and reset index")
-    logger.info("Sorting by click time and reset index")
-    df = df.sort_values("click_time").reset_index(drop=True)
+    df = order_by_time(df, time_col='click_date', logger=logger)
 
     print("Saving new sorted data set...")
     logger.info("Saving new sorted data set...")
