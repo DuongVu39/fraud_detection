@@ -1,16 +1,12 @@
-import time
-import argparse
-import pandas as pd
-from utils import logging_wrapper
-import missingno as msn
-
-import matplotlib.pyplot as plt
-
 """
-        Sorting the data by time and save it as a new data set
+        Exploratory Data Analysis Scripts. The script will create:
+            Basic stats (actual proportion of label, shape, features distribution)
+            Plots of features distribution (unique values, number of unique values, type, etc.)
+            Time series plots (not yet)
+            Missing values plot
 
         Sample usage from terminal:
-            python time_sorting.py train.csv train_sorted.csv
+            python eda.py train.csv description_df.csv
 
 
         Args:
@@ -21,8 +17,15 @@ import matplotlib.pyplot as plt
                                 Path to the desired location to store logs
 
         Returns:
-            output(str): Path to output file with sorted click time
+            output(str): Path to data set description in a table format
 """
+
+import time
+import argparse
+import pandas as pd
+import missingno as msn
+import matplotlib.pyplot as plt
+from utils import logging_wrapper
 
 
 def parse_arguments():
@@ -79,6 +82,3 @@ if __name__ == "__main__":
     print("Explore missing value:")
     msn.bar(df)
     plt.savefig("missing_value.png", color='orange')
-
-
-
