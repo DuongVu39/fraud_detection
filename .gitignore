@@ -105,6 +105,7 @@ venv.bak/
 
 # data
 data/
+results/train_sorted.csv
 
 # log folder
 src/logs/
